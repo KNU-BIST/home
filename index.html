@@ -3,735 +3,885 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ============================================================
-  EDIT #1 — Page title (shows in browser tab)
-============================================================ -->
-<title>Neurosurgery Research Lab · KNU</title>
-
+<meta name="description" content="Translational neuroscience research lab at Kyungpook National University, Daegu, South Korea. Focus on iNPH, neurodegeneration, brain cancer, and biomarker discovery.">
+<title>Park Lab · Neurosurgery Research · KNU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ── RESET ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* ================================================================
+   EDIT GUIDE — search these comments to update content:
+   EDIT-PUBS     → add published paper Drive links
+   EDIT-NEWS     → add/edit news items
+   EDIT-CONTACT  → update PI / lab contact info
+   EDIT-SCHOLAR  → paste Google Scholar URL
+================================================================ */
 
-/* ── THEME ── */
-:root {
-  --bg:        #0a0c10;
-  --bg2:       #0f1218;
-  --bg3:       #151a22;
-  --border:    rgba(255,255,255,0.07);
-  --border2:   rgba(255,255,255,0.12);
-  --text:      #e8e4dc;
-  --text-soft: #9a9690;
-  --text-dim:  #5a5750;
-  --gold:      #c9a96e;
-  --gold-dim:  rgba(201,169,110,0.15);
-  --teal:      #4db8a0;
-  --teal-dim:  rgba(77,184,160,0.12);
-  --serif:     'Playfair Display', Georgia, serif;
-  --body:      'Crimson Pro', Georgia, serif;
-  --mono:      'JetBrains Mono', monospace;
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--body);
-  font-size: 18px;
-  line-height: 1.75;
-  overflow-x: hidden;
-}
-
-/* ── NOISE TEXTURE OVERLAY ── */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
+:root{
+  --bg:#07090e;
+  --bg2:#0c1018;
+  --bg3:#111720;
+  --bg4:#172030;
+  --border:rgba(255,255,255,0.06);
+  --border2:rgba(255,255,255,0.11);
+  --text:#e2dfd8;
+  --text-soft:#8f8c86;
+  --text-dim:#4e5260;
+  --gold:#c8a96d;
+  --gold-dim:rgba(200,169,109,0.13);
+  --teal:#3db89a;
+  --teal-dim:rgba(61,184,154,0.11);
+  --blue:#5b9cf6;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --sidebar-w:200px;
 }
 
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 1.2rem 3rem;
-  display: flex; align-items: center; justify-content: space-between;
-  background: rgba(10,12,16,0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--gold); }
-
-/* ── HERO ── */
-.hero {
-  min-height: 100vh;
-  padding: 120px 3rem 6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
 }
 
-/* Decorative circle */
-.hero::after {
-  content: '';
-  position: absolute;
-  right: -200px; top: 50%;
-  transform: translateY(-50%);
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  pointer-events: none;
+/* Subtle noise */
+body::before{content:'';position:fixed;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none}
+
+/* ================================================================
+   TOP NAV — right-aligned tabs
+================================================================ */
+.topnav{
+  position:fixed;top:0;left:var(--sidebar-w);right:0;z-index:200;
+  height:56px;
+  display:flex;align-items:center;justify-content:flex-end;
+  padding:0 2.5rem;
+  background:rgba(7,9,14,0.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  right: -100px; top: 50%;
-  transform: translateY(-50%);
-  width: 500px; height: 500px;
-  border-radius: 50%;
-  border: 1px solid var(--border2);
-  pointer-events: none;
+.topnav-links{display:flex;gap:2rem;list-style:none}
+.topnav-links a{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--text-soft);
+  text-decoration:none;transition:color 0.2s;
+}
+.topnav-links a:hover{color:var(--gold)}
+.topnav-dashboard{
+  margin-left:1.5rem;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:5px 14px;
+  border:1px solid rgba(200,169,109,0.35);
+  border-radius:2px;
+  color:var(--gold);
+  text-decoration:none;
+  transition:background 0.2s;
+}
+.topnav-dashboard:hover{background:var(--gold-dim)}
+
+/* ================================================================
+   LEFT SIDEBAR — fixed shortlinks panel
+================================================================ */
+.sidebar{
+  position:fixed;top:0;left:0;bottom:0;
+  width:var(--sidebar-w);
+  background:var(--bg2);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  z-index:300;
+  overflow-y:auto;
+}
+.sidebar-brand{
+  padding:1.4rem 1.5rem 1.2rem;
+  border-bottom:1px solid var(--border);
+}
+.sidebar-brand-top{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:5px;
+}
+.sidebar-brand-name{
+  font-family:var(--serif);font-size:1.05rem;
+  color:var(--text);line-height:1.25;
+}
+.sidebar-brand-sub{
+  font-family:var(--mono);font-size:9px;
+  color:var(--text-dim);letter-spacing:0.08em;
+  margin-top:3px;
 }
 
-.hero-inner { max-width: 760px; position: relative; z-index: 1; }
+/* Sidebar section groups */
+.sb-group{margin-top:0.8rem}
+.sb-group-label{
+  font-family:var(--mono);font-size:8px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--text-dim);
+  padding:0 1.5rem;margin-bottom:0.3rem;
+  display:block;
+}
+.sb-link{
+  display:flex;align-items:center;gap:8px;
+  padding:0.42rem 1.5rem;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.06em;
+  color:var(--text-soft);text-decoration:none;
+  border-left:2px solid transparent;
+  transition:all 0.15s;white-space:nowrap;overflow:hidden;
+}
+.sb-link:hover,.sb-link.active{
+  color:var(--text);background:var(--bg3);
+  border-left-color:var(--gold);
+}
+.sb-icon{font-size:11px;flex-shrink:0}
 
-.hero-kicker {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 2rem;
-  display: flex; align-items: center; gap: 1rem;
-  opacity: 0; animation: fadeUp 0.8s 0.1s forwards;
+/* External links in sidebar */
+.sb-external{
+  display:flex;align-items:center;gap:7px;
+  padding:0.4rem 1.5rem;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.05em;
+  color:var(--text-dim);text-decoration:none;
+  transition:color 0.15s;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-.hero-kicker::before {
-  content: '';
-  display: inline-block;
-  width: 40px; height: 1px;
-  background: var(--gold);
-}
+.sb-external:hover{color:var(--teal)}
+.sb-ext-icon{font-size:10px;flex-shrink:0}
 
-h1 {
-  font-family: var(--serif);
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-  opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-}
-h1 em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.hero-desc {
-  font-size: 1.15rem;
-  color: var(--text-soft);
-  max-width: 560px;
-  line-height: 1.8;
-  margin-bottom: 3rem;
-  opacity: 0; animation: fadeUp 0.8s 0.35s forwards;
-}
-
-.hero-pills {
-  display: flex; flex-wrap: wrap; gap: 0.6rem;
-  opacity: 0; animation: fadeUp 0.8s 0.5s forwards;
-}
-.pill {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border: 1px solid var(--border2);
-  border-radius: 2px;
-  color: var(--text-soft);
-  background: var(--bg3);
-}
-.pill.gold { border-color: rgba(201,169,110,0.4); color: var(--gold); background: var(--gold-dim); }
-.pill.teal { border-color: rgba(77,184,160,0.4); color: var(--teal); background: var(--teal-dim); }
-
-.hero-meta {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-  display: flex; gap: 3rem;
-  opacity: 0; animation: fadeUp 0.8s 0.65s forwards;
-}
-.hero-meta-item {}
-.hero-meta-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: 4px;
-}
-.hero-meta-value {
-  font-size: 14px;
-  color: var(--text-soft);
-  line-height: 1.4;
+.sidebar-footer{
+  margin-top:auto;
+  padding:1rem 1.5rem;
+  border-top:1px solid var(--border);
+  font-family:var(--mono);font-size:9px;
+  color:var(--text-dim);letter-spacing:0.05em;
+  line-height:1.8;
 }
 
-/* ── SECTIONS ── */
-section {
-  padding: 6rem 3rem;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
-.section-inner { max-width: 1000px; margin: 0 auto; }
-
-.section-header { margin-bottom: 3.5rem; }
-.section-num {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
-  display: flex; align-items: center; gap: 0.75rem;
-}
-.section-num::after {
-  content: '';
-  flex: 1; max-width: 40px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.5;
-}
-h2 {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  color: var(--text);
-}
-h2 em { font-style: italic; color: var(--gold); }
-
-.lead {
-  font-size: 1.1rem;
-  color: var(--text-soft);
-  max-width: 640px;
-  margin-top: 1rem;
-  line-height: 1.8;
+/* ================================================================
+   MAIN CONTENT — offset for sidebar + topnav
+================================================================ */
+.main{
+  margin-left:var(--sidebar-w);
+  padding-top:56px;
+  min-height:100vh;
+  position:relative;z-index:1;
 }
 
-/* ── RESEARCH GRID ── */
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
+/* ================================================================
+   HERO
+================================================================ */
+.hero{
+  min-height:calc(100vh - 56px);
+  padding:5rem 4rem 5rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
 }
-.research-card {
-  background: var(--bg2);
-  padding: 2rem 1.8rem;
-  transition: background 0.2s;
+/* Decorative rings */
+.hero::after{content:'';position:absolute;right:-180px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;border:1px solid var(--border);pointer-events:none}
+.hero::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;border:1px solid var(--border2);pointer-events:none}
+
+.hero-inner{max-width:700px;position:relative;z-index:1}
+
+.hero-kicker{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.8rem;
+  display:flex;align-items:center;gap:0.8rem;
+  opacity:0;animation:fadeUp 0.7s 0.1s forwards;
 }
-.research-card:hover { background: var(--bg3); }
-.research-card-icon {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 0.5rem;
+.hero-kicker::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold)}
+
+h1{
+  font-family:var(--serif);
+  font-size:clamp(2.6rem,5vw,4.5rem);
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  color:var(--text);
+  margin-bottom:1.4rem;
+  opacity:0;animation:fadeUp 0.7s 0.2s forwards;
 }
-.research-card-icon::before {
-  content: '';
-  width: 20px; height: 1px;
-  background: var(--gold);
-  opacity: 0.6;
-}
-.research-card h3 {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  color: var(--text);
-  margin-bottom: 0.6rem;
-  line-height: 1.3;
-}
-.research-card p {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  line-height: 1.7;
+h1 em{font-style:italic;color:var(--gold)}
+
+.hero-desc{
+  font-size:1.05rem;color:var(--text-soft);
+  max-width:540px;line-height:1.85;
+  margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp 0.7s 0.32s forwards;
 }
 
-/* ── TEAM ── */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+.hero-pills{
+  display:flex;flex-wrap:wrap;gap:0.5rem;
+  margin-bottom:3rem;
+  opacity:0;animation:fadeUp 0.7s 0.44s forwards;
 }
-.team-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 1.8rem;
-  transition: border-color 0.2s;
+.pill{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.1em;
+  text-transform:uppercase;padding:4px 12px;
+  border:1px solid var(--border2);border-radius:2px;
+  color:var(--text-soft);background:var(--bg3);
 }
-.team-card:hover { border-color: var(--border2); }
-.team-avatar {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  color: var(--gold);
-  margin-bottom: 1rem;
+.pill.gold{border-color:rgba(200,169,109,0.4);color:var(--gold);background:var(--gold-dim)}
+.pill.teal{border-color:rgba(61,184,154,0.35);color:var(--teal);background:var(--teal-dim)}
+
+/* Hero stat bar */
+.hero-stats{
+  display:flex;gap:0;
+  border:1px solid var(--border);
+  border-radius:4px;overflow:hidden;
+  max-width:560px;
+  opacity:0;animation:fadeUp 0.7s 0.55s forwards;
 }
-.team-name {
-  font-family: var(--serif);
-  font-size: 1.15rem;
-  color: var(--text);
-  margin-bottom: 3px;
+.hero-stat{
+  flex:1;padding:1rem 1.2rem;
+  border-right:1px solid var(--border);
+  background:var(--bg2);
 }
-.team-role {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
+.hero-stat:last-child{border-right:none}
+.hero-stat-label{
+  font-family:var(--mono);font-size:8px;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;
 }
-.team-focus {
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  line-height: 1.6;
+.hero-stat-value{
+  font-family:var(--serif);font-size:1.3rem;color:var(--gold);
+  line-height:1;margin-bottom:2px;
+}
+.hero-stat-sub{font-size:11px;color:var(--text-soft)}
+
+/* ================================================================
+   SECTION SHARED STYLES
+================================================================ */
+section{
+  padding:5rem 4rem;
+  border-bottom:1px solid var(--border);
+}
+.section-inner{max-width:960px}
+.section-header{margin-bottom:3rem}
+.section-num{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:0.6rem;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.section-num::after{content:'';flex:1;max-width:32px;height:1px;background:var(--gold);opacity:0.5}
+h2{
+  font-family:var(--serif);
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  line-height:1.15;color:var(--text);
+}
+h2 em{font-style:italic;color:var(--gold)}
+.lead{
+  font-size:1rem;color:var(--text-soft);
+  max-width:600px;margin-top:0.8rem;line-height:1.8;
 }
 
-/* ── COLLABORATORS ── */
-.collab-list { display: flex; flex-direction: column; gap: 0; }
-.collab-item {
-  padding: 1.8rem 0;
-  border-bottom: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  align-items: flex-start;
-  transition: padding-left 0.2s;
-}
-.collab-item:hover { padding-left: 0.75rem; }
-.collab-item:first-child { border-top: 1px solid var(--border); }
-.collab-name {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  color: var(--text);
-  margin-bottom: 3px;
-}
-.collab-inst {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.5rem;
-}
-.collab-desc {
-  font-size: 0.92rem;
-  color: var(--text-soft);
-  line-height: 1.6;
-  max-width: 560px;
-}
-.collab-status {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 2px;
-  white-space: nowrap;
-  align-self: flex-start;
-}
-.status-active { background: var(--teal-dim); color: var(--teal); border: 1px solid rgba(77,184,160,0.3); }
-.status-potential { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,169,110,0.3); }
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ── PUBLICATIONS ── */
-.pub-list { display: flex; flex-direction: column; }
-.pub-item {
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 1.5rem;
-  transition: padding-left 0.2s;
+/* ================================================================
+   RESEARCH SECTION
+================================================================ */
+.research-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);border-radius:4px;overflow:hidden;
 }
-.pub-item:hover { padding-left: 0.75rem; }
-.pub-item:first-child { border-top: 1px solid var(--border); }
-.pub-index {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  padding-top: 6px;
-  letter-spacing: 0.08em;
+.research-card{
+  background:var(--bg2);padding:1.8rem 1.6rem;
+  transition:background 0.2s;
 }
-.pub-title {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-  line-height: 1.4;
+.research-card:hover{background:var(--bg3)}
+.rc-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:0.9rem;
+  display:flex;align-items:center;gap:0.5rem;
 }
-.pub-authors {
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  margin-bottom: 0.3rem;
+.rc-label::before{content:'';width:16px;height:1px;background:var(--gold);opacity:0.6}
+.research-card h3{
+  font-family:var(--serif);font-size:1.15rem;
+  color:var(--text);margin-bottom:0.5rem;line-height:1.3;
 }
-.pub-journal {
-  font-size: 0.85rem;
-  color: var(--gold);
-  font-style: italic;
-}
-.pub-tags { display: flex; gap: 0.4rem; margin-top: 0.6rem; flex-wrap: wrap; }
-.pub-tag {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 2px 8px;
-  border: 1px solid var(--border2);
-  border-radius: 2px;
-  color: var(--text-dim);
-}
+.research-card p{font-size:0.9rem;color:var(--text-soft);line-height:1.75}
 
-/* ── SAMPLES ── */
-.samples-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 1.5rem;
+/* ================================================================
+   TEAM SECTION
+================================================================ */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.2rem;
 }
-.sample-cell {
-  background: var(--bg2);
-  padding: 1.5rem;
+.team-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:1.8rem;
+  transition:border-color 0.2s,background 0.2s;
 }
-.sample-type {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 0.5rem;
+.team-card:hover{border-color:var(--border2);background:var(--bg3)}
+.team-avatar-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.team-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--bg4);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1rem;color:var(--gold);
+  flex-shrink:0;
 }
-.sample-desc {
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  line-height: 1.6;
+.team-name{font-family:var(--serif);font-size:1.1rem;color:var(--text);margin-bottom:2px}
+.team-degree{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:0.1em}
+.team-role{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;
 }
-.storage-note {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-dim);
-  margin-top: 0.4rem;
+.team-bio{font-size:0.88rem;color:var(--text-soft);line-height:1.7}
+.team-links{display:flex;gap:0.6rem;margin-top:1rem;flex-wrap:wrap}
+.team-link{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.08em;
+  padding:3px 9px;border:1px solid var(--border2);border-radius:2px;
+  color:var(--text-dim);text-decoration:none;transition:color 0.15s,border-color 0.15s;
 }
+.team-link:hover{color:var(--gold);border-color:rgba(200,169,109,0.4)}
 
-/* ── CONTACT ── */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
+/* ================================================================
+   COLLABORATIONS
+================================================================ */
+.collab-list{display:flex;flex-direction:column;gap:0}
+.collab-item{
+  padding:1.6rem 0;border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:1fr auto;
+  gap:2rem;align-items:flex-start;
+  transition:padding-left 0.2s;
 }
-.contact-card {
-  background: var(--bg2);
-  padding: 2rem;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  transition: background 0.2s;
+.collab-item:hover{padding-left:0.6rem}
+.collab-item:first-child{border-top:1px solid var(--border)}
+.collab-scope{
+  font-family:var(--mono);font-size:8px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;
 }
-.contact-card:hover { background: var(--bg3); }
-.contact-type {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-dim);
+.collab-inst{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:3px;
 }
-.contact-value {
-  font-size: 1rem;
-  color: var(--text);
+.collab-name{
+  font-family:var(--serif);font-size:1.1rem;
+  color:var(--text);margin-bottom:0.4rem;
 }
-.contact-arrow {
-  font-size: 1.1rem;
-  color: var(--gold);
-  margin-top: auto;
-  transition: transform 0.2s;
+.collab-desc{font-size:0.88rem;color:var(--text-soft);line-height:1.7;max-width:540px}
+.collab-desc a{color:var(--gold);text-decoration:none;font-size:0.82rem}
+.collab-desc a:hover{text-decoration:underline}
+.collab-badge{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.1em;
+  text-transform:uppercase;padding:4px 11px;border-radius:2px;
+  white-space:nowrap;align-self:flex-start;flex-shrink:0;
 }
-.contact-card:hover .contact-arrow { transform: translate(3px, -3px); }
+.badge-active{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(61,184,154,0.25)}
+.badge-developing{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(200,169,109,0.25)}
+.collab-section-head{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--text-dim);
+  padding:1.2rem 0 0.4rem;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.collab-section-head::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* ── FOOTER ── */
-footer {
-  padding: 2.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-dim);
+/* ================================================================
+   PUBLICATIONS
+================================================================ */
+.pub-list{display:flex;flex-direction:column}
+.pub-item{
+  padding:1.6rem 0;border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:52px 1fr;
+  gap:1.3rem;transition:padding-left 0.2s;
 }
+.pub-item:hover{padding-left:0.5rem}
+.pub-item:first-child{border-top:1px solid var(--border)}
+.pub-idx{
+  font-family:var(--mono);font-size:10px;color:var(--text-dim);
+  padding-top:4px;letter-spacing:0.08em;
+}
+.pub-title{
+  font-family:var(--serif);font-size:1.05rem;
+  color:var(--text);margin-bottom:0.35rem;line-height:1.4;
+}
+.pub-authors{font-size:0.87rem;color:var(--text-soft);margin-bottom:0.25rem}
+.pub-journal{font-size:0.83rem;color:var(--gold);font-style:italic}
+.pub-tags{display:flex;gap:0.35rem;margin-top:0.55rem;flex-wrap:wrap}
+.pub-tag{
+  font-family:var(--mono);font-size:8px;letter-spacing:0.08em;
+  text-transform:uppercase;padding:2px 7px;
+  border:1px solid var(--border2);border-radius:2px;color:var(--text-dim);
+}
+.pub-actions{display:flex;gap:0.5rem;margin-top:0.7rem;flex-wrap:wrap;align-items:center}
+.pub-drive{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9px;letter-spacing:0.08em;
+  padding:3px 10px;border-radius:2px;
+  background:var(--teal-dim);color:var(--teal);
+  border:1px solid rgba(61,184,154,0.2);
+  text-decoration:none;transition:background 0.15s;
+}
+.pub-drive:hover{background:rgba(61,184,154,0.18)}
+.pub-drive.pending{
+  background:var(--bg3);color:var(--text-dim);
+  border-color:var(--border);cursor:default;
+}
+.pub-doi{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:9px;letter-spacing:0.08em;
+  padding:3px 10px;border-radius:2px;
+  background:rgba(91,156,246,0.1);color:var(--blue);
+  border:1px solid rgba(91,156,246,0.2);
+  text-decoration:none;transition:background 0.15s;
+}
+.pub-doi:hover{background:rgba(91,156,246,0.18)}
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ================================================================
+   NEWS & LINKS
+================================================================ */
+/* Naver Cafe banner */
+.naver-banner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:2rem;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:1.4rem 1.8rem;
+  text-decoration:none;
+  transition:background 0.2s,border-color 0.2s;
+  margin-bottom:1.8rem;
 }
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+.naver-banner:hover{background:var(--bg3);border-color:var(--border2)}
+.naver-left{display:flex;align-items:center;gap:1rem}
+.naver-logo{
+  width:44px;height:44px;border-radius:8px;
+  background:#03C75A;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.2rem;font-weight:600;color:#fff;flex-shrink:0;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.naver-text-name{font-family:var(--serif);font-size:1.05rem;color:var(--text);margin-bottom:2px}
+.naver-text-url{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:0.08em}
+.naver-desc{font-size:0.9rem;color:var(--text-soft);max-width:400px;line-height:1.6}
+.naver-arrow{font-size:1.2rem;color:var(--gold);opacity:0.7;flex-shrink:0}
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  nav { padding: 1rem 1.25rem; }
-  .nav-links { display: none; }
-  .hero { padding: 100px 1.5rem 4rem; }
-  .hero-meta { flex-direction: column; gap: 1.5rem; }
-  section { padding: 4rem 1.5rem; }
-  .collab-item { grid-template-columns: 1fr; gap: 0.75rem; }
-  .contact-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
-  .pub-item { grid-template-columns: 40px 1fr; }
+/* News grid */
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:1rem;
+}
+.news-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:1.4rem;
+  text-decoration:none;
+  display:flex;flex-direction:column;gap:0.5rem;
+  transition:background 0.2s,border-color 0.2s;
+}
+.news-card:hover{background:var(--bg3);border-color:var(--border2)}
+.news-source{
+  font-family:var(--mono);font-size:8px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--gold);
+}
+.news-title{
+  font-family:var(--serif);font-size:0.98rem;
+  color:var(--text);line-height:1.45;flex:1;
+}
+.news-date{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:0.05em}
+.news-arrow{font-size:10px;color:var(--gold);opacity:0.6;margin-top:0.4rem}
+.news-card.placeholder{border-style:dashed;cursor:default;opacity:0.5}
+.news-card.placeholder:hover{background:var(--bg2)!important;border-color:var(--border)!important}
+
+/* ================================================================
+   MEDIA / VIDEO
+================================================================ */
+.video-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.video-block{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;overflow:hidden;
+  transition:border-color 0.2s;
+}
+.video-block:hover{border-color:var(--border2)}
+.video-block iframe{width:100%;height:240px;border:none;display:block}
+.video-meta{padding:1rem 1.3rem;border-top:1px solid var(--border)}
+.video-meta-title{
+  font-family:var(--serif);font-size:0.98rem;
+  color:var(--text);margin-bottom:3px;line-height:1.35;
+}
+.video-meta-sub{font-family:var(--mono);font-size:9px;color:var(--text-dim);letter-spacing:0.05em}
+
+/* ================================================================
+   CONTACT — PI CREDENTIALS
+================================================================ */
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.pi-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:2rem;
+  grid-column:span 2;
+  display:flex;gap:2rem;align-items:flex-start;
+}
+.pi-avatar{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--bg4);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:1.5rem;color:var(--gold);
+  flex-shrink:0;
+}
+.pi-name{font-family:var(--serif);font-size:1.4rem;color:var(--text);margin-bottom:3px}
+.pi-credentials{font-family:var(--mono);font-size:10px;color:var(--gold);letter-spacing:0.08em;margin-bottom:0.75rem}
+.pi-dept{font-size:0.88rem;color:var(--text-soft);line-height:1.7;margin-bottom:0.8rem}
+.pi-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.pi-tag{
+  font-family:var(--mono);font-size:8px;letter-spacing:0.08em;
+  text-transform:uppercase;padding:2px 8px;
+  border:1px solid var(--border2);border-radius:2px;color:var(--text-dim);
+}
+.contact-card{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:4px;padding:1.6rem;
+  text-decoration:none;display:flex;flex-direction:column;gap:0.35rem;
+  transition:background 0.2s,border-color 0.2s;
+}
+.contact-card:hover{background:var(--bg3);border-color:var(--border2)}
+.contact-type{font-family:var(--mono);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-dim)}
+.contact-value{font-size:0.95rem;color:var(--text)}
+.contact-arrow{font-size:1rem;color:var(--gold);margin-top:auto;transition:transform 0.2s}
+.contact-card:hover .contact-arrow{transform:translate(3px,-3px)}
+
+/* ================================================================
+   FOOTER
+================================================================ */
+footer{
+  padding:2rem 4rem;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  align-items:center;gap:1rem;
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);
+  border-top:1px solid var(--border);
+}
+footer a{color:var(--text-dim);text-decoration:none;transition:color 0.15s}
+footer a:hover{color:var(--gold)}
+.footer-center{text-align:center}
+.footer-right{text-align:right}
+
+/* ================================================================
+   ANIMATIONS
+================================================================ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ================================================================
+   RESPONSIVE
+================================================================ */
+@media(max-width:900px){
+  :root{--sidebar-w:0px}
+  .sidebar{display:none}
+  .topnav{left:0;padding:0 1.5rem}
+  .hero{padding:4rem 1.5rem}
+  section{padding:3.5rem 1.5rem}
+  .research-grid{grid-template-columns:1fr}
+  .video-row{grid-template-columns:1fr}
+  .contact-layout{grid-template-columns:1fr}
+  .pi-card{grid-column:span 1;flex-direction:column}
+  footer{grid-template-columns:1fr;text-align:center}
+  .footer-center,.footer-right{text-align:center}
+  .hero-stats{flex-direction:column}
+  .collab-item{grid-template-columns:1fr;gap:0.5rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-  NAV
-  EDIT #2 — Lab short name top-left
-============================================================ -->
-<nav>
-  <a class="nav-logo" href="#">KNU · Neurosurgery Lab</a>
-  <ul class="nav-links">
+<!-- ================================================================
+  LEFT SIDEBAR
+================================================================ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-brand-top">KNU · Neurosurgery</div>
+    <div class="sidebar-brand-name">Park Lab</div>
+    <div class="sidebar-brand-sub">Translational Neuroscience</div>
+  </div>
+
+  <!-- Section navigation -->
+  <div class="sb-group">
+    <span class="sb-group-label">Navigate</span>
+    <a class="sb-link" href="#research"><span class="sb-icon">◈</span> Research</a>
+    <a class="sb-link" href="#team"><span class="sb-icon">◉</span> Team</a>
+    <a class="sb-link" href="#collaborations"><span class="sb-icon">◎</span> Collaborations</a>
+    <a class="sb-link" href="#publications"><span class="sb-icon">◧</span> Publications</a>
+    <a class="sb-link" href="#news"><span class="sb-icon">◫</span> News</a>
+    <a class="sb-link" href="#media"><span class="sb-icon">▶</span> Media</a>
+    <a class="sb-link" href="#contact"><span class="sb-icon">✉</span> Contact</a>
+  </div>
+
+  <!-- External quick links -->
+  <div class="sb-group">
+    <span class="sb-group-label">Quick links</span>
+    <a class="sb-external" href="https://cafe.naver.com/nph1" target="_blank">
+      <span class="sb-ext-icon">N</span> Naver Café
+    </a>
+    <a class="sb-external" href="https://med.knu.ac.kr/pages/sub.htm?nav_code=knu1670413496&mode=view&mv_data=aWR4PTE1NyZtb2RlPSZzdGFydFBhZ2U9MTAwJmxpc3RObz0yMzQmdGFibGU9Y3NfYmJzX2RhdGEmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mdmlld19sZXZlbD1wMSZsaXN0X3NjYWxlPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9JnZpZXdfY2F0ZTM9JnZpZXdfY2F0ZTQ9JnZpZXdfY2F0ZTU9JnZpZXdfY2F0ZTY9||" target="_blank">
+      <span class="sb-ext-icon">🏥</span> KNUH Profile
+    </a>
+    <a class="sb-external" href="https://github.com/masud-l" target="_blank">
+      <span class="sb-ext-icon">⌥</span> GitHub
+    </a>
+    <a class="sb-external" href="https://scholar.google.com/citations?user=PASTE_YOUR_ID" target="_blank"><!-- EDIT-SCHOLAR -->
+      <span class="sb-ext-icon">◎</span> Google Scholar
+    </a>
+    <a class="sb-external" href="https://sites.google.com/view/dgistcsp/home" target="_blank">
+      <span class="sb-ext-icon">↗</span> DGIST CSP Lab
+    </a>
+    <a class="sb-external" href="https://sites.google.com/view/kim-lab-dgist/home" target="_blank">
+      <span class="sb-ext-icon">↗</span> DGIST Kim Lab
+    </a>
+  </div>
+
+  <!-- Dashboard link — password protected -->
+  <div class="sb-group">
+    <span class="sb-group-label">Internal</span>
+    <a class="sb-link" href="dashboard.html" target="_blank">
+      <span class="sb-icon">🔒</span> Lab Dashboard
+    </a>
+  </div>
+
+  <div class="sidebar-footer">
+    © 2026 Park Lab · KNU<br>
+    Daegu, South Korea
+  </div>
+</aside>
+
+<!-- ================================================================
+  TOP NAV — section tabs on the right
+================================================================ -->
+<nav class="topnav">
+  <ul class="topnav-links">
     <li><a href="#research">Research</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#collaborations">Collaborations</a></li>
     <li><a href="#publications">Publications</a></li>
+    <li><a href="#news">News</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a class="topnav-dashboard" href="dashboard.html" target="_blank">🔒 Dashboard</a>
 </nav>
 
+<!-- ================================================================
+  MAIN
+================================================================ -->
+<div class="main">
 
-<!-- ============================================================
-  HERO
-  EDIT #3 — Lab full name, institution, tagline, and keywords
-============================================================ -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">Kyungpook National University · Daegu, South Korea</div>
+    <div class="hero-kicker">Kyungpook National University Hospital · Daegu, South Korea</div>
 
-    <h1>Bridging<br><em>neurosurgery</em><br>and molecular science</h1>
+    <h1>Decoding<br><em>neurological disease</em><br>at the molecular level</h1>
 
     <p class="hero-desc">
-      We are a translational research lab at the interface of clinical neurosurgery
-      and molecular biology. Our work spans transcriptomics, immunophenotyping,
-      and biomarker discovery using rare patient-derived clinical samples.
+      We are a translational neuroscience laboratory combining the unique clinical access
+      of a high-volume neurosurgical centre with state-of-the-art molecular biology.
+      Our work centres on idiopathic normal pressure hydrocephalus, neurodegeneration,
+      and brain tumours — using patient-derived samples to discover actionable biomarkers.
     </p>
 
     <div class="hero-pills">
-      <span class="pill gold">RNA-seq</span>
-      <span class="pill gold">Flow cytometry</span>
-      <span class="pill gold">ELISA</span>
-      <span class="pill teal">iNPH</span>
-      <span class="pill teal">Brain tissue</span>
-      <span class="pill teal">Neurodegeneration</span>
-      <span class="pill">Cancer</span>
-      <span class="pill">Gestational diabetes</span>
-      <span class="pill">Meta-analysis</span>
+      <span class="pill gold">iNPH</span>
+      <span class="pill gold">Neurodegeneration</span>
+      <span class="pill gold">Brain Cancer</span>
+      <span class="pill teal">RNA-seq</span>
+      <span class="pill teal">Biomarker discovery</span>
+      <span class="pill teal">Meta-analysis</span>
+      <span class="pill">CSF proteomics</span>
+      <span class="pill">Multi-omics</span>
     </div>
 
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Principal Investigator</div>
-        <div class="hero-meta-value">Kisu Park, MD<br>Neurosurgeon · KNU</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-label">PI</div>
+        <div class="hero-stat-value" style="font-size:1rem;padding-top:4px">Kisu Park</div>
+        <div class="hero-stat-sub">MD, PhD · Neurosurgeon</div>
       </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Location</div>
-        <div class="hero-meta-value">Daegu, South Korea</div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Established</div>
+        <div class="hero-stat-value">2025</div>
+        <div class="hero-stat-sub">Daegu, South Korea</div>
       </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">Established</div>
-        <div class="hero-meta-value">2025</div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Sample biobank</div>
+        <div class="hero-stat-value">100+</div>
+        <div class="hero-stat-sub">CSF · Blood · Brain tissue</div>
       </div>
-      <div class="hero-meta-item">
-        <div class="hero-meta-label">GitHub</div>
-        <div class="hero-meta-value"><a href="https://github.com/masud-l" style="color:var(--gold);text-decoration:none;">@masud-l</a></div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Collaborators</div>
+        <div class="hero-stat-value">4+</div>
+        <div class="hero-stat-sub">National &amp; international</div>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- ============================================================
-  SECTION 1 — RESEARCH
-  EDIT #5 — Adjust descriptions to match your exact focus
-============================================================ -->
+<!-- ================================================================
+  01 — RESEARCH
+================================================================ -->
 <section id="research">
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-num">01 · Research</div>
       <h2>What we <em>investigate</em></h2>
       <p class="lead">
-        Our lab leverages a unique access to clinical-grade patient samples —
-        CSF, blood, and brain tissue — to study neurological disease at the
-        molecular level, alongside cancer biology and placental physiology.
+        Our lab is built on a rare asset: direct, IRB-approved access to surgical
+        patient samples including CSF, blood, and resected brain tissue. We leverage
+        this to address unresolved questions in neurodegeneration, normal pressure
+        hydrocephalus, and brain cancer through molecular and computational approaches.
       </p>
     </div>
-
     <div class="research-grid reveal">
 
       <div class="research-card">
-        <div class="research-card-icon">Neurology</div>
+        <div class="rc-label">Neurology</div>
         <h3>iNPH Biomarker Discovery</h3>
-        <p>Using patient-derived CSF and blood samples to identify molecular
-        markers of idiopathic normal pressure hydrocephalus, shunt responsiveness,
-        and differential diagnosis from other neurodegenerative diseases.</p>
+        <p>Idiopathic normal pressure hydrocephalus is a treatable yet under-diagnosed
+        condition. We use patient-derived CSF and blood to discover molecular biomarkers
+        that improve diagnosis, predict shunt responsiveness, and distinguish iNPH from
+        other neurodegenerative diseases.</p>
       </div>
 
       <div class="research-card">
-        <div class="research-card-icon">Transcriptomics</div>
+        <div class="rc-label">Neurodegeneration</div>
+        <h3>Neurodegenerative Disease Mechanisms</h3>
+        <p>We investigate the molecular overlap and divergence between iNPH,
+        Alzheimer's disease, Parkinson's disease, and related conditions. Comparative
+        multi-omics analysis of patient CSF and brain tissue aims to identify
+        disease-specific molecular signatures.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-label">Transcriptomics</div>
         <h3>Brain Tissue RNA-seq</h3>
-        <p>Collecting and profiling surgically resected brain tissue — including
-        glioblastoma, brain metastases, and iNPH — by RNA sequencing to decode
-        disease-specific gene expression landscapes.</p>
+        <p>Surgically resected brain tissue from iNPH, glioblastoma, and
+        brain metastasis cases is profiled by bulk and single-cell RNA sequencing.
+        We decode disease-specific gene expression landscapes in collaboration
+        with electrophysiology experts at DGIST.</p>
       </div>
 
       <div class="research-card">
-        <div class="research-card-icon">Immunophenotyping</div>
-        <h3>Flow Cytometry Panels</h3>
-        <p>Establishing and optimising FACS panels for immune profiling of
-        iNPH patient blood and brain tissue to characterise immune cell
-        populations in neurological disease.</p>
+        <div class="rc-label">Oncology</div>
+        <h3>Brain Cancer &amp; Metastasis</h3>
+        <p>We study the transcriptomic and molecular biology of glioblastoma
+        and brain metastases from various primary cancers, using resected surgical
+        specimens to characterise tumour heterogeneity and identify candidate
+        therapeutic targets.</p>
       </div>
 
       <div class="research-card">
-        <div class="research-card-icon">Cancer Biology</div>
-        <h3>Cancer &amp; Drug Resistance</h3>
-        <p>Investigating the molecular mechanisms underlying resistance to
-        radiotherapy in colorectal cancer, with experience in cloning,
-        cancer therapeutics development, and molecular biology.</p>
-      </div>
-
-      <div class="research-card">
-        <div class="research-card-icon">Placental Biology</div>
-        <h3>Gestational Diabetes &amp; RAS</h3>
-        <p>Characterising the renin-angiotensin system, ACE2, and glucose
-        transporter expression in placental tissue from gestational diabetes
-        cohorts and the modulatory role of aspirin.</p>
-      </div>
-
-      <div class="research-card">
-        <div class="research-card-icon">Evidence Synthesis</div>
+        <div class="rc-label">Evidence synthesis</div>
         <h3>Systematic Reviews &amp; Meta-analyses</h3>
-        <p>Conducting rigorous systematic reviews and meta-analyses in
-        hydrocephalus surgery and iNPH differential diagnosis to synthesise
-        the global evidence base and inform clinical practice.</p>
+        <p>We conduct rigorous systematic reviews and meta-analyses to synthesise
+        the global evidence base in hydrocephalus and iNPH, informing clinical
+        practice and providing the evidence foundation for our experimental programmes.</p>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-label">Clinical biobank</div>
+        <h3>Biobank &amp; Multi-omics Platform</h3>
+        <p>A prospective biobank of CSF, blood, and brain tissue from our PI's
+        neurosurgical cases underpins all translational research. Samples are
+        curated for proteomics, transcriptomics, and microplastic detection,
+        with all collection conducted under approved IRB protocols.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-
-<!-- ============================================================
-  SECTION 2 — TEAM
-  EDIT #6 — Fill in focus areas
-============================================================ -->
+<!-- ================================================================
+  02 — TEAM
+================================================================ -->
 <section id="team">
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-num">02 · Team</div>
       <h2>The <em>people</em></h2>
+      <p class="lead">A small, focused team combining clinical neurosurgery, molecular biology, and evidence synthesis.</p>
     </div>
-
     <div class="team-grid reveal">
 
+      <!-- PI -->
       <div class="team-card">
-        <div class="team-avatar">PI</div>
-        <div class="team-name">Kisu Park, MD, PhD</div>
+        <div class="team-avatar-row">
+          <div class="team-avatar">KP</div>
+          <div>
+            <div class="team-name">Kisu Park</div>
+            <div class="team-degree">MD, PhD</div>
+          </div>
+        </div>
         <div class="team-role">Principal Investigator</div>
-        <div class="team-focus">
-          Neurosurgeon with unique access to clinical brain tissue, CSF,
-          and blood samples from a broad spectrum of neurological patients.
-          Leads the lab's translational research vision.
+        <div class="team-bio">
+          Neurosurgeon and physician-scientist at KNU Hospital. Specialises in
+          hydrocephalus, brain tumour surgery, and neuroendoscopy. Provides the
+          lab with privileged access to high-quality clinical samples from a
+          broad spectrum of neurological conditions, and leads the lab's
+          translational research strategy.
         </div>
-      </div>
-      
-      <!--Postdoc 1 details (Irin Sultana Nila) -->
-      <div class="team-card">
-        <div class="team-avatar">IS</div>
-        <div class="team-name">Irin Sultana Nila, PhD</div>
-        <div class="team-role">Post-doctoral Researcher · Meta-analysis</div>
-        <div class="team-focus">
-          Neurologist with a strong track record in systematic reviews
-          and meta-analyses. Leads evidence synthesis projects in
-          hydrocephalus and neurodegeneration.
-        </div>
-      </div>
-      
-      <!--Postdoc 2 details (Md. Masudul Haque) -->
-      <div class="team-card">
-        <div class="team-avatar">MH</div>
-        <div class="team-name">Md. Masudul Haque, PhD</div>
-        <div class="team-role">Post-doctoral Researcher · Molecular Biology Researcher</div>
-        <div class="team-focus">
-          Specialises in RNA-seq, FACS, ELISA, Western blot, PCR, and cloning.
-          Leads all wet lab operations, protocol establishment, and
-          colorectal cancer &amp; placenta biology projects.
+        <div class="team-links">
+          <a class="team-link" href="https://med.knu.ac.kr/pages/sub.htm?nav_code=knu1670413496&mode=view&mv_data=aWR4PTE1NyZtb2RlPSZzdGFydFBhZ2U9MTAwJmxpc3RObz0yMzQmdGFibGU9Y3NfYmJzX2RhdGEmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mdmlld19sZXZlbD1wMSZsaXN0X3NjYWxlPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9JnZpZXdfY2F0ZTM9JnZpZXdfY2F0ZTQ9JnZpZXdfY2F0ZTU9JnZpZXdfY2F0ZTY9||" target="_blank">KNUH Profile ↗</a>
+          <a class="team-link" href="https://cafe.naver.com/nph1" target="_blank">Naver NPH Café ↗</a>
         </div>
       </div>
 
-
-
-      <!-- EDIT: Admin details -->
+      <!-- Postdoc 1 -->
       <div class="team-card">
-        <div class="team-avatar">A</div>
-        <div class="team-name">[Admin Name]</div>
-        <div class="team-role">Lab Administrator</div>
-        <div class="team-focus">
-          Manages administrative operations, procurement, IRB coordination,
-          and day-to-day logistics of the lab.
+        <div class="team-avatar-row">
+          <div class="team-avatar">IS</div>
+          <div>
+            <div class="team-name">Irin Sultana Nila</div>
+            <div class="team-degree">PhD</div>
+          </div>
+        </div>
+        <div class="team-role">Post-doctoral Researcher · Evidence Synthesis</div>
+        <div class="team-bio">
+          Neurologist and post-doctoral researcher specialising in systematic
+          reviews and meta-analyses. Leads the lab's evidence synthesis programme,
+          focusing on hydrocephalus surgery outcomes and iNPH differential
+          diagnosis. Brings a strong clinical perspective to the research design
+          and interpretation of findings.
+        </div>
+      </div>
+
+      <!-- Postdoc 2 -->
+      <div class="team-card">
+        <div class="team-avatar-row">
+          <div class="team-avatar">MH</div>
+          <div>
+            <div class="team-name">Md. Masudul Haque</div>
+            <div class="team-degree">PhD</div>
+          </div>
+        </div>
+        <div class="team-role">Post-doctoral Researcher · Wet Lab Lead</div>
+        <div class="team-bio">
+          Molecular biologist with expertise in transcriptomics, flow cytometry,
+          ELISA, Western blot, PCR, and molecular cloning. Leads all experimental
+          laboratory operations — from protocol establishment and sample processing
+          to bioinformatics analysis of RNA-seq data. Also manages the lab's
+          computational infrastructure and GitHub repository.
+        </div>
+        <div class="team-links">
+          <a class="team-link" href="https://github.com/masud-l" target="_blank">GitHub ↗</a>
+          <a class="team-link" href="https://scholar.google.com/citations?user=PASTE_YOUR_ID" target="_blank">Scholar ↗</a><!-- EDIT-SCHOLAR -->
+        </div>
+      </div>
+
+      <!-- Admin — placeholder -->
+      <div class="team-card">
+        <div class="team-avatar-row">
+          <div class="team-avatar">A</div>
+          <div>
+            <div class="team-name">[Admin Name]</div><!-- EDIT -->
+            <div class="team-degree">Lab Administrator</div>
+          </div>
+        </div>
+        <div class="team-role">Laboratory Administration</div>
+        <div class="team-bio">
+          Manages laboratory operations, reagent procurement, IRB documentation,
+          and institutional administration. Ensures smooth day-to-day running
+          of all lab activities.
         </div>
       </div>
 
@@ -739,221 +889,355 @@ footer {
   </div>
 </section>
 
-
-<!-- ============================================================
-  SECTION 3 — COLLABORATIONS
-  only research focus areas
-============================================================ -->
+<!-- ================================================================
+  03 — COLLABORATIONS
+================================================================ -->
 <section id="collaborations">
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-num">03 · Collaborations</div>
       <h2>Research <em>network</em></h2>
       <p class="lead">
-        We work closely with leading research groups across DGIST and KNU,
-        combining clinical access with cutting-edge experimental expertise.
+        We maintain active partnerships with research groups across South Korea,
+        combining our unique clinical sample access with complementary experimental
+        and computational expertise.
       </p>
     </div>
-
     <div class="collab-list reveal">
 
+      <!-- National -->
+      <div class="collab-section-head">National · South Korea</div>
+
       <div class="collab-item">
         <div>
-          <div class="collab-inst">DGIST · CSP Lab</div>
-          <div class="collab-name">Prof. 최지웅 (Choi Ji-Woong)</div>
+          <div class="collab-scope">National · DGIST, Daegu</div>
+          <div class="collab-inst">Daegu Gyeongbuk Institute of Science and Technology</div>
+          <div class="collab-name">Prof. 최지웅 (Choi Ji-Woong) · CSP Lab</div>
           <div class="collab-desc">
-            Long-term strategic research collaboration and primary funding
-            partner. Prof. Choi's lab provides key interdisciplinary support
-            for our translational neuroscience programme.
-            <br><a href="https://sites.google.com/view/dgistcsp/home" target="_blank"
-               style="color:var(--gold);font-size:0.85rem;text-decoration:none;">
-               sites.google.com/view/dgistcsp ↗</a>
+            Long-term strategic research collaboration and primary funding partner.
+            Prof. Choi's Computational &amp; Systems Pharmacology lab provides key
+            interdisciplinary support for our multi-omics programme.
+            <br><a href="https://sites.google.com/view/dgistcsp/home" target="_blank">sites.google.com/view/dgistcsp ↗</a>
           </div>
         </div>
-        <span class="collab-status status-active">Active</span>
+        <span class="collab-badge badge-active">Active</span>
       </div>
 
       <div class="collab-item">
         <div>
-          <div class="collab-inst">DGIST · Kim Lab</div>
-          <div class="collab-name">Prof. 김민환 (Kim Min-Hwan)</div>
+          <div class="collab-scope">National · DGIST, Daegu</div>
+          <div class="collab-inst">Daegu Gyeongbuk Institute of Science and Technology</div>
+          <div class="collab-name">Prof. 김민환 (Kim Min-Hwan) · Kim Lab</div>
           <div class="collab-desc">
-            Joint project on surgically resected brain tissue. Prof. Kim's lab
-            performs organotypic slice culture and patch-clamp electrophysiology;
-            our lab conducts parallel RNA-seq transcriptomic profiling.
+            Joint brain tissue study. Prof. Kim's lab performs organotypic slice
+            culture and patch-clamp electrophysiology; our lab conducts parallel
+            bulk RNA-seq transcriptomic profiling of the same specimens.
             IRB approved.
-            <br><a href="https://sites.google.com/view/kim-lab-dgist/home" target="_blank"
-               style="color:var(--gold);font-size:0.85rem;text-decoration:none;">
-               sites.google.com/view/kim-lab-dgist ↗</a>
+            <br><a href="https://sites.google.com/view/kim-lab-dgist/home" target="_blank">sites.google.com/view/kim-lab-dgist ↗</a>
           </div>
         </div>
-        <span class="collab-status status-active">Active</span>
+        <span class="collab-badge badge-active">Active · IRB ✓</span>
       </div>
 
       <div class="collab-item">
         <div>
-          <div class="collab-inst">KNU · Dept. Obstetrics &amp; Gynaecology</div>
-          <div class="collab-name">Dr. 김미주 (OB/GYN)</div>
+          <div class="collab-scope">National · KNU Hospital, Daegu</div>
+          <div class="collab-inst">Kyungpook National University Hospital</div>
+          <div class="collab-name">Dr. 김미주 · Dept. Obstetrics &amp; Gynaecology</div>
           <div class="collab-desc">
-            Collaboration on placental and serum sample analysis in gestational
-            diabetes. Current work includes ELISA, Western blot, and PCR
-            characterisation of the renin-angiotensin–GLUT axis.
-            IRB approved. Manuscript in preparation.
+            Collaborative study on placental and serum samples from gestational
+            diabetes cohorts. ELISA, Western blot, and PCR characterisation of
+            the renin-angiotensin–GLUT axis. IRB approved. Manuscript in preparation.
           </div>
         </div>
-        <span class="collab-status status-active">Active</span>
+        <span class="collab-badge badge-active">Active · IRB ✓</span>
       </div>
 
       <div class="collab-item">
         <div>
-          <div class="collab-inst">DGIST · Cancer Metabolism Lab</div>
-          <div class="collab-name">Prof. 최연경 (Choi Yeon-Kyung)</div>
+          <div class="collab-scope">National · DGIST, Daegu</div>
+          <div class="collab-inst">Daegu Gyeongbuk Institute of Science and Technology</div>
+          <div class="collab-name">Prof. 최연경 (Choi Yeon-Kyung) · Cancer Metabolism Lab</div>
           <div class="collab-desc">
-            Emerging collaboration in cancer metabolism research, leveraging
-            our PI's strong institutional relationship and our wet lab
+            Emerging collaboration in cancer metabolism research,
+            leveraging our PI's institutional relationship and our wet lab
             expertise in molecular biology and transcriptomics.
+            Scope under discussion.
           </div>
         </div>
-        <span class="collab-status status-potential">In development</span>
+        <span class="collab-badge badge-developing">Developing</span>
       </div>
 
     </div>
   </div>
 </section>
 
-
-<!-- ============================================================
-  SECTION 4 — PUBLICATIONS
-  EDIT #7 — Add your real publications. Remove placeholder entries.
-============================================================ -->
+<!-- ================================================================
+  04 — PUBLICATIONS
+  EDIT-PUBS: Replace href="#" with real Drive links or DOI URLs.
+  Remove onclick="return false" when adding a real link.
+  To get a Drive link: Drive → right-click → Share → Anyone with link → Copy.
+================================================================ -->
 <section id="publications">
   <div class="section-inner">
     <div class="section-header reveal">
       <div class="section-num">04 · Publications</div>
       <h2>Selected <em>work</em></h2>
+      <p class="lead">Manuscripts in preparation and systematic reviews currently in progress. PDF links will be activated upon publication.</p>
     </div>
-
     <div class="pub-list reveal">
 
-      <!-- Manuscript in preparation — real one from lab context -->
       <div class="pub-item">
-        <span class="pub-index">MS·01</span>
+        <span class="pub-idx">MS·01</span>
         <div>
-          <div class="pub-title">
-            Placental renin–angiotensin signaling, ACE2, and glucose transporters
-            in gestational diabetes: evidence for a RAS–GLUT axis modulated by aspirin
-          </div>
-          <div class="pub-authors">
-            [Author list] · KNU Collaboration with Dr. Kim, Dept. OB/GYN
-          </div>
-          <div class="pub-journal">Manuscript in preparation</div>
+          <div class="pub-title">Placental renin–angiotensin signaling, ACE2, and glucose transporters in gestational diabetes: evidence for a RAS–GLUT axis modulated by aspirin</div>
+          <div class="pub-authors">[Author list] · KNU · Collaboration with Dr. 김미주, Dept. OB/GYN</div>
+          <div class="pub-journal">Manuscript in preparation · 2026</div>
           <div class="pub-tags">
             <span class="pub-tag">Placenta</span>
             <span class="pub-tag">Gestational diabetes</span>
-            <span class="pub-tag">RAS</span>
+            <span class="pub-tag">RAS–GLUT</span>
             <span class="pub-tag">ACE2</span>
-            <span class="pub-tag">GLUT</span>
+          </div>
+          <div class="pub-actions">
+            <span class="pub-drive pending">PDF available upon publication</span><!-- EDIT-PUBS: replace with Drive link -->
           </div>
         </div>
       </div>
 
-      <!-- Meta-analysis 1 — in progress -->
       <div class="pub-item">
-        <span class="pub-index">MA·01</span>
+        <span class="pub-idx">MA·01</span>
         <div>
-          <div class="pub-title">
-            Lumboperitoneal Versus Ventriculoperitoneal Shunt Surgery in Adult
-            Post-Hemorrhagic Hydrocephalus: A Systematic Review and Meta-Analysis
-          </div>
+          <div class="pub-title">Lumboperitoneal Versus Ventriculoperitoneal Shunt Surgery in Adult Post-Hemorrhagic Hydrocephalus: A Systematic Review and Meta-Analysis</div>
           <div class="pub-authors">[Author list] · KNU Neurosurgery Research Lab</div>
-          <div class="pub-journal">Systematic review · In progress</div>
+          <div class="pub-journal">Systematic review · In progress · 2026</div>
           <div class="pub-tags">
             <span class="pub-tag">Meta-analysis</span>
             <span class="pub-tag">Hydrocephalus</span>
             <span class="pub-tag">Shunt surgery</span>
           </div>
+          <div class="pub-actions">
+            <span class="pub-drive pending">Preprint coming soon</span><!-- EDIT-PUBS -->
+          </div>
         </div>
       </div>
 
-      <!-- Meta-analysis 2 — in progress -->
       <div class="pub-item">
-        <span class="pub-index">MA·02</span>
+        <span class="pub-idx">MA·02</span>
         <div>
-          <div class="pub-title">
-            Differential Diagnosis of iNPH Patients with Other Neurodegenerative
-            Diseases: A Systematic Review and Meta-Analysis
-          </div>
+          <div class="pub-title">Differential Diagnosis of iNPH Patients with Other Neurodegenerative Diseases: A Systematic Review and Meta-Analysis</div>
           <div class="pub-authors">[Author list] · KNU Neurosurgery Research Lab</div>
-          <div class="pub-journal">Systematic review · In progress</div>
+          <div class="pub-journal">Systematic review · In progress · 2026</div>
           <div class="pub-tags">
             <span class="pub-tag">Meta-analysis</span>
             <span class="pub-tag">iNPH</span>
             <span class="pub-tag">Neurodegeneration</span>
+            <span class="pub-tag">Differential diagnosis</span>
+          </div>
+          <div class="pub-actions">
+            <span class="pub-drive pending">Preprint coming soon</span><!-- EDIT-PUBS -->
           </div>
         </div>
       </div>
 
-      <!-- EDIT #7 continued — Add your previous publications below -->
-      <!-- Copy and paste this block for each paper:
+      <!--
+      EDIT-PUBS: Add your published papers using this template.
+      Replace href with DOI or Google Drive PDF link, remove onclick="return false".
 
       <div class="pub-item">
-        <span class="pub-index">01</span>
+        <span class="pub-idx">01</span>
         <div>
           <div class="pub-title">Your paper title here</div>
-          <div class="pub-authors">Haque MM, Author B et al.</div>
+          <div class="pub-authors">Author A, Author B et al.</div>
           <div class="pub-journal">Journal Name · Year · doi:XXXXX</div>
-          <div class="pub-tags">
-            <span class="pub-tag">Keyword</span>
+          <div class="pub-tags"><span class="pub-tag">Topic</span></div>
+          <div class="pub-actions">
+            <a class="pub-drive" href="PASTE_DRIVE_LINK" target="_blank">📄 PDF ↗</a>
+            <a class="pub-doi" href="https://doi.org/XXXXX" target="_blank">DOI ↗</a>
           </div>
         </div>
       </div>
-
       -->
 
     </div>
   </div>
 </section>
 
+<!-- ================================================================
+  05 — NEWS & LINKS
+  EDIT-NEWS: Add more news cards. Each card is an <a> tag.
+================================================================ -->
+<section id="news">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-num">05 · News &amp; Links</div>
+      <h2>Updates &amp; <em>community</em></h2>
+    </div>
 
+    <!-- Naver Cafe -->
+    <a class="naver-banner reveal" href="https://cafe.naver.com/nph1" target="_blank">
+      <div class="naver-left">
+        <div class="naver-logo">N</div>
+        <div>
+          <div class="naver-text-name">NPH 1 — Naver Café</div>
+          <div class="naver-text-url">cafe.naver.com/nph1</div>
+        </div>
+      </div>
+      <div class="naver-desc">Prof. Kisu Park's patient community for Normal Pressure Hydrocephalus — clinical information, diagnosis guidance, and research updates in Korean.</div>
+      <div class="naver-arrow">↗</div>
+    </a>
 
-<!-- ============================================================
-  SECTION 5 — CONTACT
-  EDIT #8 — Update Google Scholar URL with your real profile link
-============================================================ -->
+    <!-- News grid -->
+    <div class="news-grid reveal">
+
+      <a class="news-card" href="https://www.knuch.kr/content/04info/01_01.asp?a_num=25951244&proc_type=view&b_num=1906" target="_blank">
+        <div class="news-source">KNUCH · KNU Hospital</div>
+        <div class="news-title">KNU Chilgok Hospital — Clinical &amp; Research News</div>
+        <div class="news-date">KNU Chilgok Hospital · 2024</div>
+        <div class="news-arrow">Read ↗</div>
+      </a>
+
+      <a class="news-card" href="https://www.knuch.kr/content/04info/01_01.asp?a_num=25951244&proc_type=view&b_num=1863" target="_blank">
+        <div class="news-source">KNUCH · KNU Hospital</div>
+        <div class="news-title">KNU Chilgok Hospital — Department Update</div>
+        <div class="news-date">KNU Chilgok Hospital · 2024</div>
+        <div class="news-arrow">Read ↗</div>
+      </a>
+
+      <a class="news-card" href="https://www.knuch.kr/content/04info/01_01.asp?a_num=25951244&proc_type=view&b_num=826" target="_blank">
+        <div class="news-source">KNUCH · KNU Hospital</div>
+        <div class="news-title">KNU Chilgok Hospital — Neurosurgery Announcement</div>
+        <div class="news-date">KNU Chilgok Hospital · 2023</div>
+        <div class="news-arrow">Read ↗</div>
+      </a>
+
+      <a class="news-card" href="https://www.knuch.kr/content/04info/01_01.asp?a_num=25951244&proc_type=view&b_num=408" target="_blank">
+        <div class="news-source">KNUCH · KNU Hospital</div>
+        <div class="news-title">KNU Chilgok Hospital — Hospital News</div>
+        <div class="news-date">KNU Chilgok Hospital</div>
+        <div class="news-arrow">Read ↗</div>
+      </a>
+
+      <a class="news-card" href="https://med.knu.ac.kr/pages/sub.htm?mode=view&mv_data=aWR4PTI0NjQyJnN0YXJ0UGFnZT0xMCZsaXN0Tm89MzUmdGFibGU9Y3NfYmJzX2RhdGEmbmF2X2NvZGU9a251MTY3MDU4Mzc5OCZjb2RlPW5vdGljZTAwMiZzZWFyY2hfaXRlbT0mc2VhcmNoX29yZGVyPSZvcmRlcl9saXN0PSZsaXN0X3NjYWxlPSZ2aWV3X2xldmVsPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9%7C%7C" target="_blank">
+        <div class="news-source">KNU College of Medicine</div>
+        <div class="news-title">KNU College of Medicine — Faculty &amp; Research Notice</div>
+        <div class="news-date">KNU Medical School</div>
+        <div class="news-arrow">Read ↗</div>
+      </a>
+
+      <!-- EDIT-NEWS: Add more cards by copying the block above -->
+      <div class="news-card placeholder">
+        <div class="news-source">Add news item</div>
+        <div class="news-title">Replace this block with an &lt;a class="news-card"&gt; tag linking to a real article</div>
+        <div class="news-date">—</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  06 — MEDIA
+================================================================ -->
+<section id="media">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-num">06 · Media</div>
+      <h2>Talks &amp; <em>outreach</em></h2>
+      <p class="lead">TV medical programming and public outreach on normal pressure hydrocephalus diagnosis and treatment, featuring Prof. Kisu Park.</p>
+    </div>
+    <div class="video-row reveal">
+
+      <div class="video-block">
+        <iframe
+          src="https://www.youtube.com/embed/6lQaGsyWN3Q?list=PLltidNxHU-YQ2g9srJw6C3r7fvT_SNSk1"
+          title="[TV Medical Yakson] Episode 824: Normal Pressure Hydrocephalus and Parkinson's Disease"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+        <div class="video-meta">
+          <div class="video-meta-title">Normal Pressure Hydrocephalus &amp; Parkinson's Disease</div>
+          <div class="video-meta-sub">TV Medical Yakson · Episode 824 · Public outreach</div>
+        </div>
+      </div>
+
+      <div class="video-block">
+        <iframe
+          src="https://www.youtube.com/embed/mQpliYXfF2U"
+          title="[TV메디컬 약손] 650회 — 치료가능한 치매: 정상압수두증의 진단과 치료"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+        <div class="video-meta">
+          <div class="video-meta-title">Treatable Dementia: iNPH Diagnosis &amp; Treatment</div>
+          <div class="video-meta-sub">TV 메디컬 약손 · Episode 650 · 2022 · Prof. Kisu Park</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+  07 — CONTACT — PI CREDENTIALS
+  EDIT-CONTACT: Update PI email and any other contact details.
+================================================================ -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header reveal">
-      <div class="section-num">05 · Contact</div>
+      <div class="section-num">07 · Contact</div>
       <h2>Get in <em>touch</em></h2>
+      <p class="lead">We welcome enquiries about research collaboration, sample sharing, and student or post-doctoral positions.</p>
     </div>
+    <div class="contact-layout reveal">
 
-    <div class="contact-grid reveal">
+      <!-- PI card — full width -->
+      <div class="pi-card">
+        <div class="pi-avatar">KP</div>
+        <div>
+          <div class="pi-name">Kisu Park</div>
+          <div class="pi-credentials">MD, PhD · Associate/Assistant Professor</div>
+          <div class="pi-dept">
+            Department of Neurosurgery<br>
+            Kyungpook National University Hospital &amp; School of Medicine<br>
+            Daegu, South Korea
+          </div>
+          <div class="pi-tags">
+            <span class="pi-tag">Hydrocephalus</span>
+            <span class="pi-tag">Brain tumour surgery</span>
+            <span class="pi-tag">Neuroendoscopy</span>
+            <span class="pi-tag">Translational neuroscience</span>
+            <span class="pi-tag">iNPH</span>
+          </div>
+        </div>
+      </div>
 
-      <!-- Already filled -->
-      <a class="contact-card" href="mailto:masud.biochem.cu@gmail.com">
-        <span class="contact-type">Email — Research Collaboration</span>
+      <!-- Contact cards -->
+      <a class="contact-card" href="mailto:masud.biochem.cu@gmail.com"><!-- EDIT-CONTACT: replace with lab/PI email -->
+        <span class="contact-type">Email · Research enquiries</span>
         <span class="contact-value">masud.biochem.cu@gmail.com</span>
         <span class="contact-arrow">→</span>
       </a>
 
-      <!-- Already filled -->
-      <a class="contact-card" href="https://github.com/masud-l" target="_blank">
-        <span class="contact-type">GitHub</span>
-        <span class="contact-value">@masud-l</span>
+      <a class="contact-card" href="https://med.knu.ac.kr/pages/sub.htm?nav_code=knu1670413496&mode=view&mv_data=aWR4PTE1NyZtb2RlPSZzdGFydFBhZ2U9MTAwJmxpc3RObz0yMzQmdGFibGU9Y3NfYmJzX2RhdGEmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mdmlld19sZXZlbD1wMSZsaXN0X3NjYWxlPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9JnZpZXdfY2F0ZTM9JnZpZXdfY2F0ZTQ9JnZpZXdfY2F0ZTU9JnZpZXdfY2F0ZTY9||" target="_blank">
+        <span class="contact-type">Institutional Profile</span>
+        <span class="contact-value">KNUH · Prof. Kisu Park</span>
         <span class="contact-arrow">→</span>
       </a>
 
-      <!-- EDIT #8 — Paste your Google Scholar URL -->
-      <a class="contact-card" href="https://scholar.google.com/citations?user=PASTE_YOUR_ID" target="_blank">
+      <a class="contact-card" href="https://scholar.google.com/citations?user=PASTE_YOUR_ID" target="_blank"><!-- EDIT-SCHOLAR -->
         <span class="contact-type">Google Scholar</span>
-        <span class="contact-value">View publications →</span>
+        <span class="contact-value">View publications &amp; citations →</span>
         <span class="contact-arrow">→</span>
       </a>
 
-      <!-- EDIT #9 — Link to your KNU department page or lab page -->
-      <a class="contact-card" href="https://knu.ac.kr" target="_blank">
-        <span class="contact-type">Institution</span>
-        <span class="contact-value">Kyungpook National University<br>Daegu, South Korea</span>
+      <a class="contact-card" href="https://cafe.naver.com/nph1" target="_blank">
+        <span class="contact-type">Naver Café · Patient community</span>
+        <span class="contact-value">NPH 1 · cafe.naver.com/nph1</span>
         <span class="contact-arrow">→</span>
       </a>
 
@@ -961,21 +1245,39 @@ footer {
   </div>
 </section>
 
-
 <!-- FOOTER -->
 <footer>
-  <span>© 2026 Neurosurgery Research Lab · KNU</span>
-  <span>Hosted on GitHub Pages</span>
+  <div>
+    <a href="https://med.knu.ac.kr/pages/sub.htm?nav_code=knu1670413496&mode=view&mv_data=aWR4PTE1NyZtb2RlPSZzdGFydFBhZ2U9MTAwJmxpc3RObz0yMzQmdGFibGU9Y3NfYmJzX2RhdGEmc2VhcmNoX2l0ZW09JnNlYXJjaF9vcmRlcj0mb3JkZXJfbGlzdD0mdmlld19sZXZlbD1wMSZsaXN0X3NjYWxlPSZ2aWV3X2NhdGU9JnZpZXdfY2F0ZTI9JnZpZXdfY2F0ZTM9JnZpZXdfY2F0ZTQ9JnZpZXdfY2F0ZTU9JnZpZXdfY2F0ZTY9||" target="_blank">
+      KNUH · Prof. Kisu Park
+    </a>
+  </div>
+  <div class="footer-center">© 2026 Park Lab · KNU Neurosurgery Research</div>
+  <div class="footer-right">
+    <a href="https://github.com/masud-l" target="_blank">GitHub @masud-l</a>
+    &nbsp;·&nbsp;
+    <a href="dashboard.html" target="_blank">Lab Dashboard 🔒</a>
+  </div>
 </footer>
 
+</div><!-- /main -->
+
 <script>
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    }),
-    { threshold: 0.08 }
-  );
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Scroll reveal
+const observer = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.07 }
+);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Active sidebar link on scroll
+const allSections = document.querySelectorAll('section[id], div[id]');
+const sbLinks = document.querySelectorAll('.sb-link[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  allSections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.id; });
+  sbLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+}, { passive: true });
 </script>
 
 </body>
